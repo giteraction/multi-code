@@ -1,4 +1,4 @@
-홀수만 더하기 
+#홀수만 더하기 
 
 n=int(input())
 ll=[]
@@ -14,7 +14,7 @@ for i in range(1,n+1):
 for i in range(0,n+1):
     print('#',i+1, lll[i])
 
-연월일 달력
+#연월일 달력
 
 n=int(input())
 
@@ -26,7 +26,7 @@ for i in range(1,n+1):
     else:
         print(s)
 
-평균값 구하기
+#평균값 구하기
 
 n=int(input())
 
@@ -38,7 +38,7 @@ for i in range(1,n+1):
 for i in range(0,n+1):
     print(list1[i])
 
-간단한 소인수분해
+#간단한 소인수분해
 
 n=int(input())
 
@@ -52,7 +52,7 @@ for i in range(1,n+1):
 
 print('#',i,num)
 
-지그재그 숫자
+#지그재그 숫자
 
 n= int(input())
 data=int(input())
