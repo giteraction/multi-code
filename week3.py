@@ -90,7 +90,24 @@ for i in range(T):
             s += list_a[k] * list_b[k]
         result.append(s)
         list_a.popleft()
-    print(f'#{i+1} {max(result)}')    
+    print(f'#{i+1} {max(result)}')
+
+# 회문1
+
+for _ in range(0,10):
+    n=int(input())
+    line=[]
+    count=0
+    for k in range(0,8):
+        w=input()
+        line.append(list(w))
+    for i in range(0,8):    
+        for j in range(0,n):
+            if line[i][j]==line[i][n-j] :
+                count+=1
+            elif line[j][i]==line[n-j][i]:
+                count+=1
+    print('#{} {}'.format(_+1, count))          
             
     
 
