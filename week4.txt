@@ -22,3 +22,30 @@ for _ in range(1,t+1):
         
 
     print('#',_,sum_d)
+
+# 가랏! RC카!
+
+t=int(input())
+
+for _ in range(1,t+1):
+    c=int(input())
+    li=[]
+    v=0
+    
+    for i in range(1,c+1):
+        
+        li.append(list(input().split(" ")))
+        
+    for j in range(0,c):    
+        if len(li[j])==2:
+            print(li[0][0])
+            if li[j][0]==1:
+                v+=int(li[j][1])
+                    
+                
+            elif li[j][0]==2:
+                v-=int(li[j][1])
+                        
+        elif len(li[j])==1:
+            v+=int(v)
+    print('#',_,v)
