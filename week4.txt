@@ -49,3 +49,22 @@ for _ in range(1,t+1):
         elif len(li[j])==1:
             v+=int(v)
     print('#',_,v)
+
+#어디에 단어가 들어갈 수 있을까
+t=int(input())
+li=[]
+sero=[]
+count=0
+for _ in range(1,t+1):
+    n,k=map(int,input().split())
+    for i in range(0,n):
+        li.append(list(input().split("0")))
+    for l in range(0,n):
+        for j in range(0,n):
+            if sum(list(li[l][j]))==k:
+                count+=1
+        #elif sum(sero.append(li[i][j])==k):
+            #count+=1
+    print('#',_, count)
+	
+	
