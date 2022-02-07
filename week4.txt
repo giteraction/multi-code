@@ -24,6 +24,7 @@ for _ in range(1,t+1):
     print('#',_,sum_d)
 
 # 가랏! RC카!
+## v변수에 숫자가 들어가질않는다..ㅠㅠ
 
 t=int(input())
 
@@ -67,4 +68,22 @@ for _ in range(1,t+1):
             #count+=1
     print('#',_, count)
 	
-	
+t=int(input())
+
+for _ in range(1,t+1):
+	w=list(input())
+	w2=[]
+	a=0
+	b=0
+	for i in range(0,len(w)+1):
+		for j in range(1,len(w)):
+			if w[i]==w[j]:
+				if w[i+1]==w[j+1]:
+					if w[i+2]==w[j+2]:
+						.
+						.
+						.
+						if w[len(w)]==w[len(w)-1]:					
+					
+			
+	print('#',_,j-i+1)	
