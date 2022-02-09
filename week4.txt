@@ -82,10 +82,27 @@ for _ in range(1,t+1):
     for i in range(0,len(w)+1):
         
         for j in range(1,len(w)):
-            while w[i]==w[j]:
+            if w[i]==w[j]:
                 for k in range(0,j):
                     w2.append(w[k])
                     w3.append(w[k+j])
+	  break
         if w2==w3:
             break            
-    print('#',_,)
+    print('#',_,len(w2))
+
+# 마디 모범답
+T = int(input())
+ 
+for test_case in range(1, T + 1):
+ 
+    words = input()
+ 
+    answer = ''
+    for spelling in words:
+        answer += spelling
+ 
+        if answer == words[len(answer):2*len(answer)]:
+            break
+             
+    print(f'#{test_case} {len(answer)}')
