@@ -106,3 +106,24 @@ for test_case in range(1, T + 1):
             break
              
     print(f'#{test_case} {len(answer)}')
+
+# 농작물 수확
+
+t=int(input())
+
+for _ in range(1,t+1):
+    li=[]
+    n=0
+    area=int(input('size of metrics:'))
+    for i in range(0,area):
+        li.append(list(input()))
+    if len(li)==1:
+        n=sum(li)
+    else:
+        n+=sum(li[int(len(li)/2)])
+        for j in range(1,int(len(li)/2)+1):
+            for k in range(1,j+1):
+                
+                n+=li[j-1][int((area-j)/2)]
+    n=area**2*n
+print('#',_,n)
