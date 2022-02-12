@@ -109,6 +109,7 @@ for test_case in range(1, T + 1):
 
 # 농작물 수확
 
+
 t=int(input())
 
 for _ in range(1,t+1):
@@ -117,13 +118,19 @@ for _ in range(1,t+1):
     area=int(input('size of metrics:'))
     for i in range(0,area):
         li.append(list(input()))
-    if len(li)==1:
-        n=sum(li)
-    else:
-        n+=sum(li[int(len(li)/2)])
-        for j in range(1,int(len(li)/2)+1):
-            for k in range(1,j+1):
+    
+    
+        
+    for j in range(1,int(len(li)/2)+1):
+        
+        for k in range(1,(area+1)//2):
+            n+=sum(map(int,li[k][(area+1)//2-k:(area+1)//2+(k-1)]))
+            
+        n+=sum(map(int,li[(area+1)//2]))
+        
+        for k in range((area+1)//2+1,area+1):
+            n+=sum(map,(int,li[k][(area+1)//2-(area+1-k):(area+1)//2+n-k]))
+            
                 
-                n+=li[j-1][int((area-j)/2)]
     n=area**2*n
 print('#',_,n)
