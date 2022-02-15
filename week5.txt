@@ -8,12 +8,12 @@ for _ in range(1,t+1):
     s=int(input('size of metrix'))
     for i in range(0,s):
         li.append(list(input().split(' ')))
-    for i in range(0,s):
-        li2.append(str(li[s-1][i])+str(li[s-2][i])+str(li[s-3][i]))
+    for j in range(0,s):
+        for i in range(s,0,-1):
+            li2[j]+=str(li[s-1][s-j])
+        
     
-        li3.append(str(li[s-1][s-i])+str(li[s-2][s-i-1])+str(li[s-3][s-i-2]))
-    
-        li4.append(str(li[s-1][s-1])+str(li[s-2][s-1])+str(li[s-3][s-1]))
+
     print('#',_)
     for i in range(0,s):
-        print(f'li{i}[i]', end='')	
+        print(f'li{i}[i]', end='')
