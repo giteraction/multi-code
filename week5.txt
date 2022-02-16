@@ -17,3 +17,22 @@ for _ in range(1,t+1):
     print('#',_)
     for i in range(0,s):
         print(f'li{i}[i]', end='')
+
+#달펭이숫자
+t=int(input('test trial'))
+for _ in range(1,t+1):
+	li=[]
+	n=0
+	s=int(input('size of metrix'))
+	for i in range(0,s):
+		n+=1	
+		li.append(n)	#첫번째줄은 차례대로 n을 증가시켜넣어준다
+				# 두번째줄 마지막 자리를 그다음 n을 넣는다
+				.
+				.
+				# s번째줄 마지막 자리를 그 다음 n을 넣는다
+				# s번째줄 마지막에서 전자리에 그다음 n을 넣는다
+				# 반복해서 s번째줄 처음 자리까지 그다음 n을 넣는다
+				# 만약에 s-1번째 줄!=li[1]이면
+				# s-1번째줄 처음자리에 그다음n을 넣는다
+					
