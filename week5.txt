@@ -35,4 +35,23 @@ for _ in range(1,t+1):
 				# 반복해서 s번째줄 처음 자리까지 그다음 n을 넣는다
 				# 만약에 s-1번째 줄!=li[1]이면
 				# s-1번째줄 처음자리에 그다음n을 넣는다
-					
+
+#시각 덧셈
+t=int(input('test trial'))
+for _ in range(1,t+1):
+    h1,m1,h2,m2=map(int,input().split())
+    h=h1+h2
+    if h>12 or h<24:
+        h=h-12
+    if h>=24:
+        h=h-24
+    m=m1+m2
+    if m>=60:
+        m=m-60
+        h+=1
+        if h>12 | h<24:
+            h=h-12
+        if h>=24:
+            h=h-24
+        
+    print('#',_ ,h ,m)	
