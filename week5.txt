@@ -12,7 +12,47 @@ for _ in range(1,t+1):
         for i in range(s,0,-1):
             li2[j]+=str(li[s-1][s-j])
         
+#숫자회전 참조
+# 숫자 배열 회전
+# NxN 행렬이 주어질 때
+# 시계 방향으로 90도, 180도, 270도 회전한 모양을 출력하라.
+T = int(input())
+for tc in range(1,T+1):
+    N = int(input())    # NxN행렬
+    matrix = [ list( map(int , input().split()) ) for _ in range(N) ]
     
+    mat_90 = [ [0 for _ in range(3)] for _ in range(3)]     # 0행렬 생성
+    mat_180 = [ [0 for _ in range(3)] for _ in range(3)]    # 0행렬 생성
+    mat_270 = [ [0 for _ in range(3)] for _ in range(3)]    # 0행렬 생성
+    
+    for i in range(N):
+        for j in range(N):                  # 입력한 matrix의 j = 2 -> 1 -> 0
+            mat_90[i][j] = matrix[N-j-1][i] # 패턴 파악 후, 행/열 순서대로 입력
+            
+    # mat_90을 90도 돌린다
+    for i in range(N):
+        for j in range(N):
+            mat_180[i][j] = mat_90[N-j-1][i]
+            
+    # mat_180을 90도 돌린다
+    for i in range(N):
+        for j in range(N):
+            mat_270[i][j] = mat_180[N-j-1][i]
+    
+    print(f'#{tc}')
+    # 각 행렬의 한 행씩 띄어쓰기를 구분으로 출력
+    for i in range(N):
+        for a in range(N):
+            print(mat_90[i][a], end = '') # 행의 요소들을 연이어서 출력
+        print(end=' ')
+        
+        for b in range(N):
+            print(mat_180[i][b], end = '')
+        print(end=' ')
+        
+        for c in range(N):
+            print(mat_270[i][c], end = '')
+        print() # 줄 바꿈   
 
     print('#',_)
     for i in range(0,s):
@@ -36,12 +76,52 @@ for _ in range(1,t+1):
 				# 만약에 s-1번째 줄!=li[1]이면
 				# s-1번째줄 처음자리에 그다음n을 넣는다
 
+#달펭이 참조
+#    우, 하, 좌, 상
+dr = [0, 1, 0, -1]
+dc = [1, 0, -1, 0]
+
+# nr : next row   , nc : next col
+# cr : current row, cc : current col
+
+T = int(input())
+for tc in range(1, T+1):
+    
+    N = int(input())
+    
+    matrix = [[0]*N for _ in range(N)]
+    
+    # 초기 위치
+    r, c = 0, 0
+    dist = 0    # 0:우, 1:하, 2:좌, 3:상
+    
+    for n in range(1, N*N + 1):
+        matrix[r][c] = n
+        r += dr[dist]   # row의 증/감
+        c += dc[dist]   # col의 증/감
+        
+        if r < 0 or c < 0 or c == N or r == N or matrix[r][c] != 0:
+            # 실행취소
+            r -= dr[dist]
+            c -= dc[dist]
+            
+            dist = (dist + 1) % 4   # 다음 방향으로 나타내기 위해 +1 보정
+            
+            r += dr[dist]
+            c += dc[dist]
+            
+    print(f'#{tc}')
+    # print 할 때 *을 붙여주면 [] 없이 출력된다
+    for row in matrix:
+        print(*row)
+    print()
+
 #시각 덧셈
 t=int(input('test trial'))
 for _ in range(1,t+1):
     h1,m1,h2,m2=map(int,input().split())
     h=h1+h2
-    if h>12 or h<24:
+    if h>12 and h<24:
         h=h-12
     if h>=24:
         h=h-24
@@ -49,9 +129,27 @@ for _ in range(1,t+1):
     if m>=60:
         m=m-60
         h+=1
-        if h>12 | h<24:
+        if h>12 and h<24:
             h=h-12
         if h>=24:
             h=h-24
         
-    print('#',_ ,h ,m)	
+    print('#',_ ,h ,m)
+
+#파스칼의 삼각형
+t=int(input('test trial'))
+
+for _ in range(1,t+1):
+    d=int(input('depth of triangle: '))
+    li=[[0]*d for _ in range(d)]
+    for i in range(0,d):
+        for j in range(i+1):
+                    if j == 0 or j == i:    
+                            li[i][j] = 1
+                    else:
+                            li[i][j] = li[i-1][j] + li[i-1][j-1]    # 오른쪽 위 + 왼쪽 위
+            
+    for row in li:
+            result = [x for x in row if x]  
+            print(*result)
+
