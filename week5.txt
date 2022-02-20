@@ -157,15 +157,17 @@ for _ in range(1,t+1):
 
 for _ in range(10):
     d=int(input('dump count: '))
-    li=(input('seting amount of the boxes: ')).split(' ')
-    li2=li
-    if d!=0:
+    li=input('seting amount of the boxes: ').split()
+    li=list(map(int,li))    # 파이썬 3.x list(map(~)) 사용해야 적용됨
+    n=0
+    # while d==0:    while문에 ==은 적용될수없다..?
+    while d<=0:
         d-=1
-        
-        li[index(max(li))]=max(li)-1
-        
-        li[index(min(li))]=min(li)+1
+        a=li.index(max(li))
+        li[a]=max(li)-1
+        b=li.index(min(li))
+        li[b]=min(li)+1
         n+=1
-print('#',_,n)
+    print('#',_+1,n) 
      
     
