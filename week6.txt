@@ -1,0 +1,23 @@
+# 스도쿠 검증
+
+t= int(input())
+li=[]
+for _ in range(t+1):
+    for i in range(10):
+        li.append(input().split())
+        li[i]=list(map(int,li[i]))
+
+# 파리 퇴치
+
+t= int(input())
+for _ in range(t+1):
+	m,n=map(int,input().split())
+	li=[]
+	li2=[]
+	for i in range(m+1):
+		li.append(input().split())
+		li[i]=list(map(int,li[i]))
+	for i in range(n+1):
+		for j in range(n+1):
+			li2[i]+=li[i][j]
+	print('#',_,max(li2))
