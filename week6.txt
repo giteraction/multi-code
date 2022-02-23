@@ -30,9 +30,22 @@ for _ in range(1,n+1):
     li.append(_)
     
 for i in range(0,n+1):
-    li.append(map(int,list(str(li[i])))) #int 타입은 쪼개지지않기때문에 str()후 다시 int
-    for k in range(0,):
+    li.append(list(str(li[i]))) #int 타입은 쪼개지지않기때문에 str()후 다시 int
+    for k in range(0,):		# str후 '3','6','9'  중 하나인지 확인하기만하면 굳이 int 변환 불필요
     	for j in range(0,len(li[i][k])):
-        	if li[i][j]%3==0:
-           	li[i][j]+='-'
+        	if li[i][j]=='3' | li[i][j]=='6' | li[i][j]=='9' |:		#각각의 요소들이 3으로 나눠지는지?
+           	li[i][j]+='-'	
 print(li)
+
+# 쉬운 거스름돈
+
+t=int(input())
+li=[]
+for _ in range(1,t+1):
+	n=int(input())
+	for i in range(7):
+	
+		a=n//(50000*(1/2)**(i%2)*1/5**((2i-1)%2))
+		li[i]=a
+		n=n//
+	
