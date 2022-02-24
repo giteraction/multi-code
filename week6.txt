@@ -43,9 +43,53 @@ t=int(input())
 li=[]
 for _ in range(1,t+1):
 	n=int(input())
-	for i in range(7):
+	for i in range(1,8):
 	
-		a=n//(50000*(1/2)**(i%2)*1/5**((2i-1)%2))
-		li[i]=a
-		n=n//
-	
+		if i%2==0:
+			a=n//(50000*(1/10**I))
+			li[i]=a
+		else:
+			a=n//(10000*(1/10**i))
+			li[i]=a
+	print('#',_,li)
+#너무 바보같다 재귀함수를 써줘야	
+t=int(input())
+
+for _ in range(1,t+1):
+    n=int(input())
+    a=n//50000
+    b=(n-a*50000)//10000
+    c=(n-a*50000-b*10000)//5000
+    d=(n-a*50000-b*10000-c*5000)//1000
+    e=(n-a*50000-b*10000-c*5000-1000*d)//500
+    f=(n-a*50000-b*10000-c*5000-1000*d-500*e)//100
+    g=(n-a*50000-b*10000-c*5000-1000*d-500*e-100*f)//50
+    h=(n-a*50000-b*10000-c*5000-1000*d-500*e-100*f-50*g)//10
+
+    print('#',_)
+    print(a ,b ,c ,d ,e ,f ,g ,h)
+
+#Sum
+li=[]
+li2=[]
+t=100
+for _ in range(10):
+    for i in range(t):
+        li.append(input().split())
+        li[i]=list(map(int,li[i]))
+    for i in range(t):
+        li2.append(sum(li[i]))
+        li3=[]
+        li4=[]
+        li5=[]
+        for j in range(t):
+            
+            li3.append(li[i][j])
+        li2.append(sum(li3))
+        for j in range(t):
+            li4.append(li[j][j])
+        li2.append(sum(li4))
+        for j in range(t):
+            li5.append(li[j][t-1-j])
+        li2.append(sum(li5))
+    print('#',_+1,max(li2))
