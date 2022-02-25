@@ -1,0 +1,36 @@
+# 파일 압축
+#프로토타입
+t=int(input())
+for _ in range(t):
+    li=[]
+    li2=[]
+    n=int(input())
+    for i in range(n):
+        li.append(list(input().split()))
+    print('#',_+1)
+    for i in range(n):
+        li2+=li[i][0]*int(li[i][1])
+    for i in range(len(li2)//10):
+        print(li2[10*i:10*i+10])
+   
+    print(li2[len(li2)-len(li2)%10:len(li2)])
+
+#파일압축
+t=int(input())
+for _ in range(t):
+    li=[]
+    li2=[]
+    n=int(input())
+    for i in range(n):
+        li.append(list(input().split()))
+    print('#',_+1)
+    for i in range(n):
+        li2+=li[i][0]*int(li[i][1])
+    for i in range(len(li2)//10):
+        for j in range(10*i,10*i+10):
+            print(li2[j],end='')
+        print()
+   
+    for i in range(len(li2)-len(li2)%10,len(li2)):
+        print(li2[i],end='')
+        

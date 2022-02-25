@@ -70,26 +70,25 @@ for _ in range(1,t+1):
     print(a ,b ,c ,d ,e ,f ,g ,h)
 
 #Sum
-li=[]
-li2=[]
+li=[]   #txt 행렬 2차원 리스트
+li2=[] #sum값들 넣는곳
 t=100
 for _ in range(10):
-    for i in range(t):
+    for i in range(t):    #2차원 리스트 생성
         li.append(input().split())
         li[i]=list(map(int,li[i]))
-    for i in range(t):
-        li2.append(sum(li[i]))
-        li3=[]
-        li4=[]
-        li5=[]
+    for i in range(t):           
+        li3=[]  #각 열 값 모아놓는곳
+        li4=[]  #대각선 원소 모아놓는곳    
+        li5=[]  #다른대각선 원소 모아놓는곳
         for j in range(t):
-            
-            li3.append(li[i][j])
-        li2.append(sum(li3))
-        for j in range(t):
-            li4.append(li[j][j])
-        li2.append(sum(li4))
-        for j in range(t):
+            li3.append(li[j][i])
             li5.append(li[j][t-1-j])
-        li2.append(sum(li5))
+        li2.append(sum(li[i])) #각 행의 합 넣기
+        li2.append(sum(li3)) #각 열의 합 넣기
+        li2.append(sum(li5)) #대각합 넣기    
+    for j in range(t):
+        li4.append(li[j][j])
+    li2.append(sum(li4))	#다른대각합넣기
+        
     print('#',_+1,max(li2))
