@@ -33,4 +33,38 @@ for _ in range(t):
    
     for i in range(len(li2)-len(li2)%10,len(li2)):
         print(li2[i],end='')
-        
+
+#조교의 성적 매기기
+t=int(input())
+li=[]
+li2=[]
+li3=[]
+s=0
+for _ in range(t):
+    m,n=map(int,input().split())
+    for i in range(m):
+        li.append(input().split())
+        li[i]=list(map(int,li[i]))
+        li2.append(li[i][0]*0.35+li[i][1]*0.45+li[i][2]*0.2)
+    li3=sorted(li2)
+    if li2[n-1]>=li3[int(0.9*len(li3))-1]:
+        s='A+'
+    elif li2[n-1]>=li3[int(0.8*len(li3))-1] and li2[n-1]<=li3[int(0.9*len(li3))-1]:
+        s='A0'
+    elif li2[n-1]>=li3[int(0.7*len(li3))-1] and li2[n-1]<=li3[int(0.8*len(li3))-1]:
+        s='A-'
+    elif li2[n-1]>=li3[int(0.6*len(li3))-1] and li2[n-1]<=li3[int(0.7*len(li3))-1]:
+        s='B+'
+    elif li2[n-1]>=li3[int(0.5*len(li3))-1] and li2[n-1]<=li3[int(0.6*len(li3))-1]:
+        s='B0'
+    elif li2[n-1]>=li3[int(0.4*len(li3))-1] and li2[n-1]<=li3[int(0.5*len(li3))-1]:
+        s='B-'
+    elif li2[n-1]>=li3[int(0.3*len(li3))-1] and li2[n-1]<=li3[int(0.4*len(li3))-1]:
+        s='C+'
+    elif li2[n-1]>=li3[int(0.2*len(li3))-1] and li2[n-1]<=li3[int(0.3*len(li3))-1]:
+        s='C0'
+    elif li2[n-1]>=li3[int(0.1*len(li3))-1] and li2[n-1]<=li3[int(0.2*len(li3))-1]:
+        s='C-'
+    else:
+        s='D0'
+    print('#',_+1,s)
