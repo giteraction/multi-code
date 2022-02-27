@@ -49,22 +49,36 @@ for _ in range(t):
     li3=sorted(li2)
     if li2[n-1]>=li3[int(0.9*len(li3))-1]:
         s='A+'
-    elif li2[n-1]>=li3[int(0.8*len(li3))-1] and li2[n-1]<=li3[int(0.9*len(li3))-1]:
+    elif li2[n-1]>=li3[int(0.8*len(li3))-1] and li2[n-1]<li3[int(0.9*len(li3))-1]:
         s='A0'
-    elif li2[n-1]>=li3[int(0.7*len(li3))-1] and li2[n-1]<=li3[int(0.8*len(li3))-1]:
+    elif li2[n-1]>=li3[int(0.7*len(li3))-1] and li2[n-1]<li3[int(0.8*len(li3))-1]:
         s='A-'
-    elif li2[n-1]>=li3[int(0.6*len(li3))-1] and li2[n-1]<=li3[int(0.7*len(li3))-1]:
+    elif li2[n-1]>=li3[int(0.6*len(li3))-1] and li2[n-1]<li3[int(0.7*len(li3))-1]:
         s='B+'
-    elif li2[n-1]>=li3[int(0.5*len(li3))-1] and li2[n-1]<=li3[int(0.6*len(li3))-1]:
+    elif li2[n-1]>=li3[int(0.5*len(li3))-1] and li2[n-1]<li3[int(0.6*len(li3))-1]:
         s='B0'
-    elif li2[n-1]>=li3[int(0.4*len(li3))-1] and li2[n-1]<=li3[int(0.5*len(li3))-1]:
+    elif li2[n-1]>=li3[int(0.4*len(li3))-1] and li2[n-1]<li3[int(0.5*len(li3))-1]:
         s='B-'
-    elif li2[n-1]>=li3[int(0.3*len(li3))-1] and li2[n-1]<=li3[int(0.4*len(li3))-1]:
+    elif li2[n-1]>=li3[int(0.3*len(li3))-1] and li2[n-1]<li3[int(0.4*len(li3))-1]:
         s='C+'
-    elif li2[n-1]>=li3[int(0.2*len(li3))-1] and li2[n-1]<=li3[int(0.3*len(li3))-1]:
+    elif li2[n-1]>=li3[int(0.2*len(li3))-1] and li2[n-1]<li3[int(0.3*len(li3))-1]:
         s='C0'
-    elif li2[n-1]>=li3[int(0.1*len(li3))-1] and li2[n-1]<=li3[int(0.2*len(li3))-1]:
+    elif li2[n-1]>=li3[int(0.1*len(li3))-1] and li2[n-1]<li3[int(0.2*len(li3))-1]:
         s='C-'
     else:
         s='D0'
     print('#',_+1,s)
+
+# 중간 평균값 구하기
+
+t=int(input())
+case=[]
+for _ in range(t):
+    case.append(input().split())
+    for i in range(len(case)):
+        case[i]=list(map(int,case[i]))
+    
+    case[i].remove(max(case[i]))
+    case[i].remove(min(case[i]))
+    mean=sum(case[i])/len(case[i])
+    print('#',_+1,int(mean))
