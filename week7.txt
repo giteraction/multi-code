@@ -82,3 +82,20 @@ for _ in range(t):
     case[i].remove(min(case[i]))
     mean=sum(case[i])/len(case[i])
     print('#',_+1,int(mean))
+
+# 최빈값 구하기
+
+
+t=int(input())
+for _ in range(t):
+    li=[]
+    
+    fr=int(input())
+    sample=input().split()
+    
+    sample=list(map(int,sample))
+    
+    for i in range(100):
+        li.append(sample.count(i))
+    print('#',fr,li.index(max(li)))
+        
