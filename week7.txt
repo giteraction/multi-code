@@ -98,4 +98,27 @@ for _ in range(t):
     for i in range(100):
         li.append(sample.count(i))
     print('#',fr,li.index(max(li)))
-        
+
+#백만장자 프로젝트
+
+t=int(input())
+
+def fun():
+    if len(p)==0: 
+        for i in range(sign):
+            profit+=high-p[sign-i]
+        p.remove(high)
+        return li.append(profit)
+    fun()
+
+for _ in range(t):
+    
+    n=int(input())
+    li=[]
+    p=input().split()
+    p=list(map(int,p))
+    for j in range(len(p)):
+        high=max(p)
+        sign=p.index(high)
+        fun()
+    print('#',_+1,sum(li))       
