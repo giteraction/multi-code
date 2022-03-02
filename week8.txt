@@ -1,0 +1,11 @@
+#모음이 보이지 않는 사람
+
+t=int(input())
+
+for _ in range(t):
+    word=list(input())
+    for i in range(word.index(word[-1])):
+        if word[i]=='a' or word[i]=='u' or word[i]=='i' or word[i]=='e' or word[i]=='o':
+            word.remove(word[i])
+    for j in range(len(word)):
+        print(word[j], end='')
