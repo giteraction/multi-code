@@ -4,8 +4,25 @@ t=int(input())
 
 for _ in range(t):
     word=list(input())
-    for i in range(word.index(word[-1])):
+    n=len(word)
+    for i in range(n-1,-1,-1):
         if word[i]=='a' or word[i]=='u' or word[i]=='i' or word[i]=='e' or word[i]=='o':
             word.remove(word[i])
+        n=word.index(word[-1])
     for j in range(len(word)):
-        print(word[j], end='')
+        print(word[j], end='') 
+
+#거듭제곱
+
+def s(m):
+    if m<=1:
+        return n
+    return n*s(m-1)
+
+
+for _ in range(10):
+    num=input()
+    n,m=map(int,input().split())
+    s(m)
+    
+    print('# {} {}'.format(num,s(m)))

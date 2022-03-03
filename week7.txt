@@ -138,6 +138,6 @@ for i in range(T):
         else: #아직 크지 않다면
             max = future[x] #아직은 매수 타이밍
     
-    print('#{} {}'.format(i+1, money))
+    print('#{} {}'.format(i+1, money)))
 
        
