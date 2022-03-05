@@ -31,25 +31,31 @@ for _ in range(10):
 
 for _ in range(10):
     long=int(input('2000~4000'))
-    origin=input('orgin code').split()
+    li=list(map(int,input('orgin code').split()))
     q=int(input('how many command? 250~500'))
-    command=input('command')
-    li=list(map(int,origin))
-    li2=list(command.split())
-
-    if li2[0]=='I':
-        for i in range(int(li2[2])):
-            li.insert(int(li2[1]),int(li2[i+3]))
+    li2=list(map(int,input('command').split(' ')))
+    li3=[]
     
-    elif li2[0]=='D':
-        for i in range(int(li2[2])):
-            li.remove(int(li2[int(li2[1])+2+i]))
     
-    elif li2[0]=='A':
-        li.extend(li2[3::])
+    for i in range(len(li2)):
+        if li2[i]== 'I':
+            li3+=[li2[i:int(li2[i+3])]]
+        elif li2[i]=='D':
+            li3+=[li2[i:i+2]]
+        elif li2[i]=='A':    
+            li3+=[li2[i:int(li2[i+2])]]
     
-    def ans():
-        for i in range(len(li)+1):
-            print(li[i],end=' ')    
+    for i in range(len(li3)):
+        if li3[i][0]=='I':
+            for i in range(int(li2[2])):
+                li.insert(int(li2[1]),int(li2[i+3]))
     
-    print('# {} {}'.format(_+1,ans()))
+        elif li3[i][0]=='D':
+            li=li[0:li.index(int(li2[1]))]+li[li.index(int(li2[1]))+li.index(int(li2[2]))::]
+    
+        elif li3[i][0]=='A':  
+            li.extend(li2[2::])
+    
+    print('# {}'.format(_+1), end=' ')
+    for i in range(len(li)):
+        print(li[i],end=' ') 
