@@ -30,10 +30,10 @@ for _ in range(10):
 #암호문3
 
 for _ in range(10):
-    long=int(input('2000~4000'))
-    li=list(map(int,input('orgin code').split()))
-    q=int(input('how many command? 250~500'))
-    li2=list(map(int,input('command').split(' ')))
+    long=int(input('2000~4000 '))
+    li=list(map(int,input('orgin code ').split()))
+    q=int(input('how many command? 250~500 '))
+    li2=list(input('command ').split(' '))
     li3=[]
     
     
@@ -47,15 +47,49 @@ for _ in range(10):
     
     for i in range(len(li3)):
         if li3[i][0]=='I':
-            for i in range(int(li2[2])):
-                li.insert(int(li2[1]),int(li2[i+3]))
-    
+            for j in range(int(li3[i][2])):
+                li.insert(li3[i][1],int(li3[i][j+3])) # 정수와 문자열
+    	  # li.insert(int(li3[i][1]),int(li3[i][j+3])) 정수로 두면 찾지를 못하고 str타입으로 두면 int로만 다뤄지기때문에 안된다고함 
         elif li3[i][0]=='D':
-            li=li[0:li.index(int(li2[1]))]+li[li.index(int(li2[1]))+li.index(int(li2[2]))::]
+            li=li[0:li.index(int(li3[i][1]))]+li[li.index(int(li3[i][1]))+li.index(int(li3[i][2]))::]
     
         elif li3[i][0]=='A':  
-            li.extend(li2[2::])
+            li.extend(li3[i][2::])
     
     print('# {}'.format(_+1), end=' ')
     for i in range(len(li)):
         print(li[i],end=' ') 
+
+#원재의 메모리 복구하기
+
+t=int(input())
+
+for _ in range(t):
+    case=list(input())
+    
+    zero = ['0' for i in range(len(list(case)))]
+    
+    for i in range(len(zero)):
+        if zero[i]!=case[i]:
+            
+            li=zero[0:i]+['1' for j in range(zero.index(len(zero)-j))]
+            
+#암호생성기    
+
+while True:
+    t=input()
+    pw=list(map(int,input().split()))
+    li=[]
+    
+    while pw[-1]!=0:
+        for i in range(5):
+            li.append(pw[0]-(i+1))
+            for j in range(7):
+                pw[j-1]=pw[j]
+            pw[-1]=li[i]
+        continue    
+    
+    print('#{}'.format(t),end=' ')
+    for i in range(len(pw)):
+        print( pw[i],end=' ')
+	
