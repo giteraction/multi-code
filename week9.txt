@@ -1,0 +1,12 @@
+#소득 불균형
+t=int(input())
+
+for _ in range(t):
+    n=int(input())
+    income=list(map(int,input().split()))
+    avg=sum(income)/len(income)
+    m=0
+    for i in range(len(income)):
+        if income[i]<=avg:
+            m+=1
+    print('#',_+1 ,m)
