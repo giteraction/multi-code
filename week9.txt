@@ -10,3 +10,28 @@ for _ in range(t):
         if income[i]<=avg:
             m+=1
     print('#',_+1 ,m)
+
+# magnetic
+
+for _ in range(10):
+    n=int(input())
+    li=[]
+    north=[]
+    south=[]
+    for i in range(n):
+        m=list(input())
+    
+    for i in range(n):
+        for j in range(n):
+            if m[i][j]=='1':
+                north.append('1')
+            elif m[i][j]=='2':
+                south.append('2')
+        if len(north)>len(south):
+            north-='1'*len(south)
+            print('#',_+1,len(north))
+        elif len(north)<len(south):
+            south-='2'*len(north)
+            print('#',_+1,len(south))
+            
+            
