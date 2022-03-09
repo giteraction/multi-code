@@ -18,20 +18,44 @@ for _ in range(10):
     li=[]
     north=[]
     south=[]
+    
+    m=list(input().split())
+    
     for i in range(n):
-        m=list(input())
+        li.append(m[(i*n):(i*n+n)])
     
     for i in range(n):
         for j in range(n):
-            if m[i][j]=='1':
+            if li[i][j]=='1':
                 north.append('1')
-            elif m[i][j]=='2':
+            elif li[i][j]=='2':
                 south.append('2')
-        if len(north)>len(south):
-            north-='1'*len(south)
-            print('#',_+1,len(north))
-        elif len(north)<len(south):
-            south-='2'*len(north)
-            print('#',_+1,len(south))
+    
+        print('#',_+1,abs(len(south)-len(north))) 
+
+# 팔씨름
+
+t= int(input())
+for _ in range(t):
+        case=list(input())
+        win=0
+        lose=0
+        for i in range(len(case)):
             
-            
+            if case[i]=='o':
+                win+=1
+            elif case[i]=='x':
+                lose+=1
+        if win>7 or lose<7:
+            print('#',_+1,'YES')
+        else:
+            print('#',_+1,'NO')          
+
+#쥬스 나누기
+
+t= int(input())
+for _ in range(t):
+        n=int(input())
+        print('#',_+1 ,end=' ')
+        for i in range(n):
+            print('1/{}'.format(n),end=' ')            
