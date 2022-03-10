@@ -58,4 +58,37 @@ for _ in range(t):
         n=int(input())
         print('#',_+1 ,end=' ')
         for i in range(n):
-            print('1/{}'.format(n),end=' ')            
+            print('1/{}'.format(n),end=' ')
+
+#제곱 팰린드롬 수
+import math
+
+t=int(input())
+
+for _ in range(t):
+    m,n=map(int,input().split())
+    count=0
+    
+    for i in range(m,n):
+        li2=[]
+        li3=[]
+        a=list(str(i))
+        
+        for j in range(len(a)):
+            if a[j]==a[len(a)-j-1]:
+                li2.append(0)
+            else:
+                li2.append(1)
+        
+        c=math.sqrt(i)
+        if c==int(c) and c**2==i:
+            b=list(str(int(math.sqrt(i))))
+            for j in range(len(b)):
+                if b[j]==b[len(b)-j-1]:
+                    li3.append(1)
+                else:
+                    li3.append(0) 
+        if len(li3)>0 and sum(li2)==0 and sum(li3)==0:
+                count+=1
+    print('#{}'.format(_+1),count)
+            
