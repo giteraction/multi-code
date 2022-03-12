@@ -1,0 +1,16 @@
+t=int(input()) 
+
+for i in range(t):
+    word=input()
+    print('..#.'*len(word),end='.')
+    print()
+    print('.#'*2*len(word),end='.')
+    print()
+    
+    for j in range(len(word)):
+        print('#.{}'.format(word[j]),end='.')
+    print('#')
+
+    print('.#'*2*len(word),end='.')
+    print()
+    print('..#.'*len(word),end='.') 

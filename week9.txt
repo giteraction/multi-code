@@ -97,11 +97,12 @@ for _ in range(t):
 for _ in range(10):
     n,pw=map(str,input().split())
     pw=list(pw)
-    for i in range(n-1,-1,-1): 
-        if pw[i]==pw[i+1]:
-                pw.remove(pw[i])
-                pw.remove(pw[i])
-        n=pw.index(pw[-1])
-    print('#{}'.format(_+1),end='')
-    for i in range(n):
-        print(pw[i],end='')            
+    for i in range(int(n)-1,-1,-1): 
+        if pw[i-1]==pw[i]:
+                pw.remove(pw[i-1])
+                pw.remove(pw[i-1])
+        
+    print('#{} '.format(_+1),end='')
+    for i in range(len(pw)):
+        print(pw[i],end='')
+    print()           
