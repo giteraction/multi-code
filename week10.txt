@@ -1,3 +1,5 @@
+# 다이아몬드 장식
+
 t=int(input()) 
 
 for i in range(t):
@@ -13,4 +15,60 @@ for i in range(t):
 
     print('.#'*2*len(word),end='.')
     print()
-    print('..#.'*len(word),end='.') 
+    print('..#.'*len(word),end='.')
+
+#string
+
+for i in range(10):
+    case=int(input())
+    sep=input()
+    n=-1
+    word=input().split(sep)
+    for i in range(len(word)):
+        word[i]==sep
+        n+=1
+        
+    print('#{}'.format(case),n)
+
+#회문2
+
+
+for i in range(10):
+    case=int(input())
+    li=[]
+    n=10
+    word=list(input())
+    for i in range(10):
+        li.append(word[i*10:(i+1)*10])
+    max=0
+    while len<=10:
+        answer=0
+        
+        for x in range(10):
+            for y in range(11-length):
+                a=word[x][y:y+length]
+                if a==a[::-1]:
+                    max+=1
+                    answer=1
+                    break
+            if answer==1:
+                break
+        length+=1 
+    
+    print('#{}'.format(i+1) ,max)
+                
+            
+
+# 직사각형 길이 찾기
+
+t=int(input())
+for i in range(t):
+    a,b,c=map(int,input().split())
+    d=0
+    if a==b:
+        d=c
+    elif b==c:
+        d=a
+    else:
+        d=b
+    print('#{}'.format(i+1) ,d) 
