@@ -72,3 +72,21 @@ for i in range(t):
     else:
         d=b
     print('#{}'.format(i+1) ,d) 
+
+#Calkin-Wilf tree 1
+
+t=int(input())
+
+for _ in range(t):
+    node=list(input())
+    
+    a=1
+    b=1
+    for i in range(len(node)):
+        if node[i]=='L':
+            a+=a
+            b+=a+b
+        else:
+            a+=a+b
+            b+=b
+    print('#{}'.format(_+1) ,a ,b)
