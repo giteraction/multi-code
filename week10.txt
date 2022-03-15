@@ -74,7 +74,6 @@ for i in range(t):
     print('#{}'.format(i+1) ,d) 
 
 #Calkin-Wilf tree 1
-
 t=int(input())
 
 for _ in range(t):
@@ -84,9 +83,22 @@ for _ in range(t):
     b=1
     for i in range(len(node)):
         if node[i]=='L':
-            a+=a
-            b+=a+b
+            a=a
+            b=a+b
         else:
-            a+=a+b
-            b+=b
+            a=a+b
+            b=b
     print('#{}'.format(_+1) ,a ,b)
+
+#USB 꽂기의 미스터리
+
+t=int(input())
+for _ in range(t):
+    p,q=map(float,input().split())
+    s1=(1-p)*q
+    s2=p*(1-q)*q
+    if s1<s2:
+        print('#{}'.format(_+1),'YES')
+    else:
+        print('#{}'.format(_+1),'NO')
+    
