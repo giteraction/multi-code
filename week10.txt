@@ -109,4 +109,60 @@ for _ in range(t):
     n,m=map(int,input().split())
     t=n-m
     u=2*m-n
-    print('#{} '.format(t+1),u ,t)    
+    print('#{} '.format(t+1),u ,t)
+
+#구독자 전쟁
+
+t=int(input())
+for _ in range(t):
+    n,a,b=map(int,input().split())
+    if n>a+b:
+        x=0
+    
+    else:
+        x=a+b-n
+    if a>b:
+        y=b
+    else:
+        y=a
+    print('#{}'.format(_+1) ,y ,x)    
+
+# perfect shuffle
+
+t=int(input())
+for _ in range(t):
+    n=int(input())
+    card=list(input().split(' '))
+    if (len(card)%2==0):
+        card1=card[0:int((len(card)/2))]
+        card2=card[int((len(card)/2)):len(card)]
+        print('#{}'.format(_+1),end=' ')
+        for i in range(len(card1)):
+            print(card1[i],end=' ')
+    
+            print(card2[i],end=' ')        
+    else:
+        card1=card[0:int((len(card)/2))+1]
+        card2=card[int((len(card)/2))+1:len(card)]        
+        print('#{}'.format(_+1),end=' ')
+        for i in range(len(card2)):
+            print(card1[i],end=' ')
+    
+            print(card2[i],end=' ')
+        print(card1[-1])
+
+# gns
+
+t=int(input())
+for _ in range(t):
+    n=input()
+    dict={'ZRO':0,'ONE':0,'TWO':0,'THR':0,'FOR':0,'FIV':0,'SIX':0,'SVN':0,'EGT':0,'NIN':0}
+    li=input().split()
+    ans=''
+    for s in li:
+        dict[s]+=1
+    for key,value in dict.items():
+        temp=' '.join([key]*value)
+        ans+=temp+' '
+    print('#{}'.format(t))
+    print(ans[:len(ans)-1])
