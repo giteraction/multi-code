@@ -1,0 +1,9 @@
+for _ in range(10):
+    t=int(input())
+    house=list(map(int,input().split()))
+    n=0
+    for i in range(2,len(house)-2):
+        if house[i]-house[i-1]>1 and house[i]-house[i+1]>1 and house[i]-house[i+2]>1 and house[i]-house[i-2]>1:
+            li=[house[i-1],house[i+1],house[1+2],house[i-2]]
+            n+=house[i]-max(li)
+    print('#{}'.format(_+1) ,n)
