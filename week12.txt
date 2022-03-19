@@ -4,6 +4,52 @@ for _ in range(10):
     n=0
     for i in range(2,len(house)-2):
         if house[i]-house[i-1]>1 and house[i]-house[i+1]>1 and house[i]-house[i+2]>1 and house[i]-house[i-2]>1:
-            li=[house[i-1],house[i+1],house[1+2],house[i-2]]
+            li=[house[i-1],house[i+1],house[1+2],house[i-2]] #인덱스에 맞게 리스트에 담아내질못하네..? i>1을 오타 
+
+            n+=house[i]-max(li)
+    print('#{}'.format(_+1) ,n)s
+
+# view
+
+for _ in range(10):
+    t=int(input())
+    house=list(map(int,input().split()))
+    n=0
+    for i in range(2,len(house)-2):
+        li=[house[i-2],house[i-1],house[i+1],house[i+2]]
+        if house[i]-house[i-1]>0 and house[i]-house[i+1]>0 and house[i]-house[i+2]>0 and house[i]-house[i-2]>0:
+            
             n+=house[i]-max(li)
     print('#{}'.format(_+1) ,n)
+
+#두가지 빵의 딜레마
+
+t= int(input())
+
+for _ in range(t):
+    n=0
+    a,b,c=map(int,input().split())
+    n+=c//min(a,b)
+    if c%min(a,b)>max(a,b):
+        n+=c//max(a,b)
+    print('#{}'.format(_+1) ,n)
+
+#문자열 거울상
+
+t= int(input())
+
+for _ in range(t):
+    word=list(input())
+    word.reverse()
+    for i in range(len(word)):
+        if word[i]=='b':
+            word[i]='d'
+        elif word[i]=='d':
+            word[i]='b'            
+        elif word[i]=='p':
+            word[i]='q'    
+        elif word[i]=='q':
+            word[i]='p'    
+    print('#{}'.format(_+1),end=' ')
+    for i in range(len(word)):
+        print(word[i],end='')
