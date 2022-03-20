@@ -53,3 +53,17 @@ for _ in range(t):
     print('#{}'.format(_+1),end=' ')
     for i in range(len(word)):
         print(word[i],end='')
+# 현주의 상자바꾸기
+t=int(input())
+for _ in range(t):
+    n,q=map(int,input().split())
+    li=[0 for i in range(n)]
+    status=[]
+    for i in range(q):
+        l,r=map(int,input().split())
+        for j in range(l-1,r):
+            li[j]=i+1
+    print('#{}'.format(_+1),end=' ')
+    for i in range(len(li)):
+        print(li[i],end=' ')
+    
