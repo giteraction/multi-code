@@ -53,7 +53,8 @@ for _ in range(t):
     print('#{}'.format(_+1),end=' ')
     for i in range(len(word)):
         print(word[i],end='')
-# 현주의 상자바꾸기
+
+#현주의 상자 바꾸기
 t=int(input())
 for _ in range(t):
     n,q=map(int,input().split())
@@ -63,7 +64,23 @@ for _ in range(t):
         l,r=map(int,input().split())
         for j in range(l-1,r):
             li[j]=i+1
+
+#외로운 문자
+from collections import Counter
+
+t=int(input())
+
+for _ in range(t):
+    word=list(input())
+    a=Counter(word)
+    li=[]
+    for v in a:
+        if a[v]%2==1:
+            li.append(v)
     print('#{}'.format(_+1),end=' ')
-    for i in range(len(li)):
-        print(li[i],end=' ')
-    
+    if len(li)==0:
+        print('Good')
+    else:
+        li.sort()
+        for i in range(len(li)):
+            print(li[i],end='') 

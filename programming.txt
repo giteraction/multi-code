@@ -1,0 +1,37 @@
+phone_book=["119", "97674223", "1195524421"]
+dict={}
+for i in range(len(phone_book)):
+        dict[phone_book[i]]=len(phone_book[i])
+        a=min(dict,key=dict.get)
+        del dict[a]
+if a in phone_book:
+    return false
+else:
+    return true
+
+
+
+def solution(phone_book):
+    dict={}
+    for i in range(len(phone_book)):
+            dict[phone_book[i]]=len(phone_book[i])
+    a=min(dict,key=dict.get)
+    
+    li=[]
+    li2=[]
+    c=1
+    for i in range(len(phone_book)):
+        li.append(list(phone_book[i]))
+    li.remove(list(a))
+    
+    for i in range(len(li)):
+        b=li[i][0:len(list(a))]
+        if list(a) == b:
+            li2.append(0)
+        else:
+            li2.append(1)
+        c=c*li2[i]
+    if c==0:
+        return False
+    else:
+        return True
