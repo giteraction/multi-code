@@ -51,3 +51,28 @@ def solution(phone_book):
                 answer = False
     return answer
 solution(phone_book)
+
+#정렬 가장큰수
+#시간초과
+from itertools import permutations
+numbers=[6, 10, 2]
+def solution(numbers):
+    li2=[]
+    
+    li=list(permutations(numbers, len(numbers)))
+    for i in range(len(li)):
+        a=''
+        for j in range(len(li[i])):
+          a+=str(li[i][j])
+        li2.append(int(a))
+        
+    return str(max(li2))
+    
+solution(numbers)
+
+def solution(numbers):
+    #0. key point
+    numbers_str = [str(num) for num in numbers]                 #1. 사전 값으로 정렬하기
+    numbers_str.sort(key=lambda num: num*3, reverse=True)       #2. number는 1000이하의 숫자이므로 x3(반복)한 값으로 비교
+
+    return str(int(''.join(numbers_str)))
