@@ -1,0 +1,14 @@
+#평범한숫자
+
+t=int(input())
+
+for _ in range(t):
+    n=int(input())
+    line=list(map(int,input().split()))
+    nm=0
+    for i in range(n-2):
+        
+        li=line[i:i+3]
+        if max(li)!=li[1] and min(li)!=li[1]:
+            nm+=1
+    print(f'#{_+1} {nm}')
