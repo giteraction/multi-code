@@ -76,3 +76,19 @@ def solution(numbers):
     numbers_str.sort(key=lambda num: num*3, reverse=True)       #2. number는 1000이하의 숫자이므로 x3(반복)한 값으로 비교
 
     return str(int(''.join(numbers_str)))
+
+#수박수
+def solution(n):
+    a='수'
+    b='박'
+    answer=''
+    for i in range(n):
+        if i%2==0:
+            answer +=a
+        elif i%2==1:
+            answer +=b
+    return answer
+solution(3)
+
+# 파이썬 숫자를 리스트로 바꾸기
+[int(c) for c in str(n)]
