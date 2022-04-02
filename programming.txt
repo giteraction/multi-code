@@ -145,3 +145,30 @@ def toWeirdCase(s):
     return c
 toWeirdCase(s)
 
+#시저암호
+
+def solution(s, n):
+    li=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    li2=[]
+    for i in range(len(li)):
+        li2.append(li[i].upper())
+    li3=list(s)
+    word=''
+    for i in range(len(li3)):
+        
+        if li3[i].isupper():
+            num=li2.index(li3[i])+n
+            if num>25:
+                num=num-26
+            word+=li2[num]
+        
+        elif li3[i].islower():
+            num=li.index(li3[i])+n
+            if num>25:
+                num=num-26
+            word+=li[num]
+        else:
+            word+=' '
+                    
+    return word
+solution('a B z', 4)
