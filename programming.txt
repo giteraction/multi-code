@@ -185,3 +185,6 @@ def solution(s):
         return False
             
 solution('a234')
+
+#return sorted([s for s in strings],key = lambda a:[a[n],a]) 
+#이렇게 람다식을 변경하시면 해결됩니다. n번째 문자를 우선적으로 처리하고 그 다음 나머지를 처리하는 방식입니다
