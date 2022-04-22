@@ -1,0 +1,25 @@
+for i in range(int(input())):
+	n=int(input())
+	li=[]
+	for j in range(2,10):
+		if n%j==0:
+			li.append(0)
+	if len(li)>1:
+		print('#{} Yes'.format(i))
+	else:
+		print('#{} No'.format(i))
+
+구구단1
+
+T=int(input())
+
+for i in range(1,T+1):
+    Num=int(input())
+    check=False
+    for j in range(1,10):
+        if Num/j<=9 and (Num/j).is_integer():
+            check=True
+
+    if check:
+        print(f"#{i} Yes")
+    else:
