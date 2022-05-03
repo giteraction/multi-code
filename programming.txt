@@ -306,5 +306,16 @@ for i in range(len(arr1)):
         
         zr[i][j]=int(li1[i][j])
         
-     
+# 예산
+
+def solution(a, budget):
+    a.sort()
+    answer=0
+    for i in range(len(a)-1):
+        budget=budget-a[i]
+        answer+=1
+        if budget<a[i+1]:
+            break
+    
+    return answe     
         
