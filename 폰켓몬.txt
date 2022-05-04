@@ -1,0 +1,8 @@
+def solution(nums):
+    b=list(set(nums))
+    c=0
+    n=len(nums)//2
+    for value in b:
+        if c<n:
+            c+=1 
+    return c
