@@ -317,5 +317,27 @@ def solution(a, budget):
         if budget<a[i+1]:
             break
     
-    return answe     
+    return answer
+
+# 숫자124
+
+from itertools import product
+
+a=1
+li=[]
+li2=[]
+n=4
+c=0
+for i in range(18):
+    a*=3
+    li.append(a)
+    b=sum(li)
+for i in range(len(li)):
+    c+=li[i]
+    li2.append(c)
+for i in li2:
+    if n<=i:
+        d=li2.index(i)
+        for j in product([1,2,4], repeat=d+1):
+            print(j, end=" ")     
         
