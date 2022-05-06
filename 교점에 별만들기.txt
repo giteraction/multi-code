@@ -1,0 +1,13 @@
+
+line=[[2, -1, 4], [-2, -1, 4], [0, -1, 1], [5, -8, -12], [5, 8, 12]]
+def solution(line):
+    li1=[]
+    li2=[]
+    for i in range(len(line)):
+        li1.append([line[i][0],line[i][1]])
+        li2.append(line[i][2])
+    a=np.array(li1)
+    b=np.array(li2)
+    return a,b
+
+solution(line)
