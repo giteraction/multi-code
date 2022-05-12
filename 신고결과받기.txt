@@ -1,18 +1,41 @@
 id_list=["muzi", "frodo", "apeach", "neo"]
 report=["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
 k=2
+b=list(set(report))
 def solution(id_list, report, k):
     answer = []
     li=[]
     for i in id_list:
         answer.append(0)
         
-    for i in set(report):
+    for i in b:
         li.append(i.split( ))
         
     for i in range(len(id_list)):
         for li[i][1] in id_list:
             answer[id_list.index(li[i][1])]+=1
     
+    return answer
+solution(id_list, report, k)
+
+
+
+id_list=["muzi", "frodo", "apeach", "neo"]
+report=["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
+k=2
+
+def solution(id_list, report, k):
+    answer = []
+    li=[]
+    for i in id_list:
+        answer.append(0)
+        
+    for i in list(set(report)):
+        li.append(i.split( ))
+        
+    for i in range(len(id_list)+1):
+        
+        answer[id_list.index(li[i][1])]+=1
+            
     return answer
 solution(id_list, report, k)

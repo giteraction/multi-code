@@ -1,0 +1,15 @@
+
+new_id="...!@BaT"
+li=['!','@','#','$','%','^','&','*','(',')','_','+']
+def solution(new_id):
+    answer =new_id.lower()
+    for i in li:
+        
+        answer =answer.replace(i,"")
+        
+    answer=list(answer)
+    for i in range(len(answer)):
+        if answer[i]+answer[i+1]=='..':
+            answer.pop(i)
+    return answer 
+solution(new_id)
