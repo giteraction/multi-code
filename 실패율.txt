@@ -1,0 +1,34 @@
+N=5
+stages=  [2, 1, 2, 6, 2, 4, 3, 3]
+def solution(N, stages):
+    li=(N+1)*[0]
+    result=[]
+    for i in range(len(stages)+1):
+        for j in range(len(li)+1):
+            if stages[i]==j:
+                li[j]+=1
+    #for i in range(len(li)):
+        #result.append(li[i]/len(stages))
+    #return answer
+solution(N, stages)
+
+##
+
+N=5
+stages=  [2, 1, 2, 6, 2, 4, 3, 3]
+def solution(N, stages):
+    li=(N+1)*[0]
+    result=[]
+    answer=[]
+    n=len(stages)
+    for i in range(len(li)):
+        
+        li[i]=stages.count(i)
+    for i in range(1,len(li)):
+        n-=li[i-1]
+        result.append(li[i]/n)
+    
+    dic = {i+1 : result[i] for i in range(len(result))}
+    dic=dict(sorted(dic.items(),reverse=True, key=lambda x:x[1]))
+    return list(dic.keys())
+solution(N, stages)
