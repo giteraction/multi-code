@@ -32,3 +32,27 @@ def solution(N, stages):
     dic=dict(sorted(dic.items(),reverse=True, key=lambda x:x[1]))
     return list(dic.keys())
 solution(N, stages)
+
+##예외 처리
+
+N=5
+stages=  [2, 1, 2,1, 2, 4, 3, 3]
+def solution(N, stages):
+    li=(N+1)*[0]
+    result=[]
+    answer=[]
+    n=len(stages)
+    for i in range(len(li)):
+        
+        li[i]=stages.count(i)
+    for i in range(1,len(li)):
+        n-=li[i-1]
+        if n!=0:
+            result.append(li[i]/n)
+        elif n==0:
+            result.append(li[i]/1)
+    
+    dic = {i+1 : result[i] for i in range(len(result))}
+    dic=dict(sorted(dic.items(),reverse=True, key=lambda x:x[1]))
+    return list(dic.keys())
+solution(N, stages)
