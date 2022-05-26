@@ -1,0 +1,11 @@
+def solution(board, moves):
+    answer = 0
+    bucket=[]
+    for j in moves:
+        for i in range(len(board)):
+            if board[j-1][i]!=0:
+                bucket.append(board[j-1][i])
+            break
+        if bucket[j]==bucket[j+1]:
+            bucket.remove(bucket[j+1])
+    return answer
