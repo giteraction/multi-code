@@ -1,0 +1,11 @@
+def solution(scoville, K):
+    answer = 0
+    while min(scoville)>=K:
+        not_spicy=min(scoville)
+        scoville.pop(min(scoville))
+        not_spicy2=min(scoville)
+        scoville.pop(min(scoville))
+        scoville.append(not_spicy+2*not_spicy2)
+        answer+=1
+
+    return answer
