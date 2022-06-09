@@ -1,0 +1,10 @@
+def solution(w,h):
+    answer=1
+    if w==h:
+        answer=w*h-w
+    else:
+        if w%2!=0:
+            answer=w*h-3*(w//3)-4
+        else:
+            answer=w*h-2*w
+    return answer
