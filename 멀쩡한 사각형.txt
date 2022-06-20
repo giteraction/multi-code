@@ -8,3 +8,9 @@ def solution(w,h):
         else:
             answer=w*h-2*w
     return answer
+
+#
+
+import math
+def solution(w,h):
+    return w*h-(w+h-math.gcd(w,h))
