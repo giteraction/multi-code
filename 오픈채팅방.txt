@@ -1,0 +1,37 @@
+record=["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]
+li=[]
+answer=[]
+def solution(record):
+    for i in record:
+        li.append(i.split(" "))
+    for i in range(len(record)):
+        if li[i][0]=='Enter':
+            answer.append(f"{li[i][2]}님이 들어왔습니다.")
+        elif li[i][0]=='Leave':
+            
+            answer.append(f"{li[i][2]}님이 나갔습니다.")
+    return answer
+
+solution(record)
+
+
+
+record=["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]
+def solution(record):
+    
+    dic={}
+    answer=[]
+    for i in record:
+        sen_split=i.split()
+        if len(sen_split)==3:
+            dic[sen_split[1]]=sen_split[2]
+    for i in record:
+        sen_split=i.split()
+        if sen_split[0]=='Enter':
+            answer.append(f"{dic[sen_split[1]]}님이 들어왔습니다.")
+        elif sen_split[0]=='Leave':
+            
+            answer.append(f"{dic[sen_split[1]]}님이 나갔습니다.")
+    return answer
+
+solution(record)
