@@ -1,0 +1,11 @@
+priorities=[2, 1, 3, 2]
+location=2
+def solution(priorities, location):
+    dic={}
+  
+    for i in range(len(priorities)):
+        dic[i]=priorities[i]
+    priorities.sort(reverse=True)
+    
+    return priorities.index(dic[location])+1
+solution(priorities, location)
