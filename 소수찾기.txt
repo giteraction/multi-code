@@ -1,0 +1,25 @@
+from itertools import permutations
+numbers="17"
+def solution(numbers):
+    li=[]
+    li2=[]
+    n=list(numbers)
+    ans=0
+    for i in range(1,len(numbers)+1):
+        li+=list(permutations(list(numbers), i))
+    for i in range(len(li)):
+        num=''
+        for j in range(len(li[i])):
+            num+=li[i][j]
+        li2.append(num)
+    for k in li2:
+        k=int(k)
+        if k==2 or k==3: 
+            ans+=1
+        
+        for i in range(3, int(k**0.5)+1, 2):
+            if k%i!=0:
+                ans+=1
+    return ans
+
+solution(numbers)
