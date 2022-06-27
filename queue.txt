@@ -8,7 +8,7 @@ queue.append(5)
 queue.append(2)
 queue.append(3)
 queue.append(7)
-queue.popleft()
+queue.popleft()#pop을 쓰면 스택이라고 볼수있다.
 queue.append(1)
 queue.append(4)
 queue.popleft()
