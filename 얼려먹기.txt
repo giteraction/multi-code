@@ -1,0 +1,39 @@
+#음료수 얼려먹기
+
+def dfs(x,y):
+	#주어진 범위에서 벗어나는 경우 즉시 종료
+	if x<=01 or x>=n or y<=-1 or y>=m:
+		return False
+	# 현재 노드를 아직 방문하지 않았다면
+	if graph[x][y]==0:
+		#해당노드 방문처리
+		graph[x][y]=1
+		#상하좌우의 위치들도 모두 재귀적으로 호출
+		dfs(x-1,y) 
+		dfs(x,y-1)
+		dfs(x+1,y)
+		dfs(x,y+1)
+		return True
+	return False
+
+		#각각 함수속에서 True 혹은 False를 상쇄적으로 리턴하기때문에 
+		#재귀함수들이 상위함수들에게 미치는 영향은 없다
+		#다만 이 함수들이 있음으로써 사방에 0인지1인지 확인후 0이라면 그 원소에 1씩 채워넣을수있게되고
+		# 차례대로 주변이 채워지기때문에 처음에 시작한 부분에서 채우게되면 
+		# 이후 부분들에서 dfs 함수를 돌릴때는 이전 원소 탐색때 이미 채워져을것이기때문에 
+		# result+=1값이 중복적으로 작용하지는 않을것이다.
+
+n,m=map(int,input().split())
+
+graph=[]
+for i in range(n):
+	graph.append(list(map(int,input())))
+
+#모든 노드에 대해 음료수 채우기
+result=0
+for i in range(n):
+	for j in range(m):
+		#현재 위치에서 dfs수행
+		if dfs(i,j)==True:
+			result+=1
+print(result)
