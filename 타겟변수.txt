@@ -1,0 +1,17 @@
+from collections import deque
+def solution(numbers, target):
+    answer = 0
+    queue = deque()
+    n = len(numbers)
+    queue.append([numbers[0],0])	#큐에 그래프 처음값을 넣어주고 인덱싱
+    queue.append([-1*numbers[0],0])	#마이너스에 대한부분도 마찬가지로
+    while queue:	#큐가 빌때까지 while문 진행
+        temp, idx = queue.popleft()	#각변수를 큐값으로 뽑아오기(각각의2차원리스트 원소값)
+        idx += 1	# 인덱스값 추가
+        if idx < n:
+            queue.append([temp+numbers[idx], idx])
+            queue.append([temp-numbers[idx], idx])
+        else:
+            if temp == target:
+                answer += 1
+    return answer
