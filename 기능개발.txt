@@ -1,4 +1,5 @@
 from collections import deque
+import math
 def solution(progresses, speeds):
 
     answer = []
@@ -6,13 +7,39 @@ def solution(progresses, speeds):
     queue=deque()
     leng=len(speeds)
     for i in range(leng):
-        queue.append((100-progresses[i])/speeds[i])
-    for i in range(leng):
-        if queue[i]<queue[i+1]:
-            queue.popleft()
-            n+=1
-        elif queue[i]>queue[i+1]:
+        queue.append(math.ceil((100-progresses[i])/speeds[i]))
+    for i in range(len(speeds)):
+        if queue[i]>=queue[n]:
+            
+n=i
+        
             answer.append(n)
             n=0
         
     return answer
+progresses=[93, 30, 55]
+speeds=[1, 30, 5]
+solution(progresses, speeds)
+
+
+##참고후
+
+import math
+def solution(progresses, speeds):
+
+    answer = []
+    n=0
+    queue=[]
+    leng=len(speeds)
+    for i in range(leng):
+        queue.append(math.ceil((100-progresses[i])/speeds[i]))
+    for i in range(leng):
+        if queue[i]>queue[n]:
+            answer.append(i-n)
+            n=i
+        
+    answer.append(leng-n)        
+    return answer
+progresses=[93, 30, 55]
+speeds=[1, 30, 5]
+solution(progresses, speeds)
