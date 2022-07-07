@@ -17,10 +17,10 @@ car3=Car('red',20,'small')
 i=0
 while True:
     i+=1
-    car1.move()
+    
     if i>5:
         break
-    
+    car1.move()
 
 print(car1.speed)
 
